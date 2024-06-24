@@ -2,7 +2,7 @@ import { getUrl, remove, uploadData } from "aws-amplify/storage";
 import { useEffect, useState } from "react";
 import { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
-import { Button, Flex, Heading } from "@aws-amplify/ui-react";
+import { Button,  Heading } from "@aws-amplify/ui-react";
 
 type PictureManagerProps = {
   roomId: string;
