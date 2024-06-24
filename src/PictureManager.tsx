@@ -47,7 +47,7 @@ export function PictureManager({ roomId }: PictureManagerProps) {
     <>
       {imageUrls.length > 0 ? (
         <div className="picture-gallery">
-          <Heading level={2}>Uploaded Pictures</Heading>
+          <Heading level={2}>商品データの分析</Heading>
           <Flex justifyContent={"space-evenly"}>
             {imageUrls.map((url) => (
               <img key={url} className="picture-img" src={url} />

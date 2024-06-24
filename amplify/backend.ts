@@ -32,6 +32,8 @@ backend.generateHaiku.resources.lambda.addToRolePolicy(
     actions: ["bedrock:InvokeModel"],
     resources: [
       `arn:aws:bedrock:${Stack.of(backend.data).region}::foundation-model/${MODEL_ID}`,
+      `arn:aws:bedrock:us-east-1::foundation-model/${MODEL_ID}`,
+
     ],
   })
 )

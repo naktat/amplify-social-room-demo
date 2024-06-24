@@ -4,7 +4,9 @@ import { env } from '$amplify/env/generateHaiku'
 import { BedrockRuntimeClient, InvokeModelCommand, InvokeModelCommandInput } from "@aws-sdk/client-bedrock-runtime";
 
 const s3Client = new S3Client()
-const bedrockClient = new BedrockRuntimeClient()
+const bedrockClient = new BedrockRuntimeClient({
+  region: "us-east-1"
+})
 
 export const handler: Schema["generateHaiku"]["functionHandler"] = async (context) => {
   const fileNames = await s3Client.send(new ListObjectsCommand({
@@ -30,7 +32,8 @@ export const handler: Schema["generateHaiku"]["functionHandler"] = async (contex
     body: JSON.stringify({
       anthropic_version: "bedrock-2023-05-31",
       system:
-        "You are a an expert at crafting a haiku. You are able to craft a haiku out of anything and therefore answer only in haiku. Make sure to create new lines between the different sentences. Create a haiku based on the following images:",
+        // "あなたは俳句を作る専門家です。あなたは何からでも俳句を作ることができるので、俳句だけで答えます。文と文の間は必ず改行してください。次の画像をもとに俳句を作ってください：",
+        "あなたはデータ分析担当です。表形式の画像が送られてくるため、正確に文字情報を読み取ってください。データとデータの間は必ずスペースを開けて、改行してください。次の画像をもとにデータを解析結果を表示してください：",
       messages: [
         {
           role: "user",
@@ -43,7 +46,7 @@ export const handler: Schema["generateHaiku"]["functionHandler"] = async (contex
             }
           })), {
             type: 'text',
-            text: 'Create one and exactly one Haiku based on the combination of all images above.'
+            text: '解析結果は、上記のすべてのイメージの組み合わせに基づいて、正確に作成します。'
           }],
         },
       ],
