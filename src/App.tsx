@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { ControlPanel } from './ControlPanel'
-import { CursorPanel } from './CursorPanel'
+// import { CursorPanel } from './CursorPanel'
 import { PictureManager } from './PictureManager'
 import { defaultRoom, generateRandomEmoji } from './utils'
 
