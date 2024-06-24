@@ -58,7 +58,8 @@
 
 .cursor-panel {
   text-align: center;
-  background: linear-gradient(135deg, rgb(117, 81, 194), rgb(255, 255, 255));
+/*  background: linear-gradient(135deg, rgb(117, 81, 194), rgb(255, 255, 255));*/
+  background: whitesmoke;
   position: absolute;
   top: 0;
   left: 0;
@@ -104,15 +105,84 @@
 }
 
 .picture-img {
-  width: 100px;
-  height: 100px;
+  width: 240px;
+  height: 140px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 12px;
-  object-fit: cover;
+/*  object-fit: cover;*/
+  object-fit: contain;
 }
 
 .haiku-panel {
   color: black;
   font-size: large;
   font-weight: 300;
+}
+
+
+.haiku-table {
+  margin-top: 1rem;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #333;
+}
+
+.haiku-table th,
+.haiku-table td {
+  padding: 0.5rem;
+  border: 1px solid #333;
+  text-align: left;
+}
+
+
+
+/* 新しいスタイル */
+.picture-layout {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.picture-layout button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.picture-layout button:hover {
+  background-color: #555;
+}
+
+.haiku-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.haiku-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.haiku-buttons button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.haiku-buttons button:hover {
+  background-color: #555;
 }
